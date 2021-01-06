@@ -39,7 +39,7 @@ mpb.set_goal(235 * 0.5, 40 * 0.5, 0)
 mpb.run(id='test_run_intel', runs=1)
 mpb.visualize_trajectories(fig_width=5, fig_height=5)
 ```
-![png](/images/frontend/environments-image/output_11_1.png)
+![png](/assets/frontend/environments-image/output_11_1.png)
 
 [View Jupyter Notebook](https://github.com/eric-heiden/mpb/blob/master/plotting/Image%20Grid%20Maze.ipynb){: .btn .btn-green }
 
@@ -78,7 +78,7 @@ for i, parameter in enumerate(parameters):
     plot_env(run["environment"], draw_start_goal_thetas=False, draw_start_goal=False, set_title=False)
     plt.title("$r = %g$" % parameter, fontsize=24)
 ```
-![png](/images/frontend/environments-corridor/output_2_1.png)
+![png](/assets/frontend/environments-corridor/output_2_1.png)
 
 [View Jupyter Notebook](https://github.com/eric-heiden/mpb/blob/master/plotting/Corridors.ipynb){: .btn .btn-green }
 
@@ -118,6 +118,6 @@ plt.savefig("obstacle_ratios.pdf", bbox_inches='tight')
 # plt.savefig("obstacle_ratios.png", bbox_inches='tight')
 ```
 
-![png](/images/frontend/environments-corridor/output_4_1.png)
+![png](/assets/frontend/environments-corridor/output_4_1.png)
 
 [View Jupyter Notebook](https://github.com/eric-heiden/mpb/blob/master/plotting/Corridors.ipynb){: .btn .btn-green }

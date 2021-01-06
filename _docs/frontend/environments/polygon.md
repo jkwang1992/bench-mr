@@ -12,7 +12,7 @@ Mazes of this type consist of convex shapes that are stored as paths in a SVG fi
 
 [View Jupyter Notebook](https://github.com/eric-heiden/mpb/blob/master/plotting/Polygon%20Mazes.ipynb){: .btn .btn-green }
     
-![png](/images/frontend/environments-randompolygon/output_1_7.png)
+![png](/assets/frontend/environments-randompolygon/output_1_7.png)
 
 ## Random Polygon Maze Generation
 
@@ -64,7 +64,7 @@ PMG.save_svg(obstacles, "test.svg")
 PMG.plot(obstacles)
 ```
     
-![png](/images/frontend/environments-randompolygon/output_2_0.png)
+![png](/assets/frontend/environments-randompolygon/output_2_0.png)
 
 Use `MPB.set_polygon_env(svg_filename)` to set the SVG file as environment for the given `MPB` instance.
 
@@ -80,7 +80,7 @@ if m.run(id="test", runs=1) == 0:
     m.visualize_trajectories(draw_start_goal_thetas=True, plot_every_nth_polygon=10, silence=True)
 ```
  
-![png](/images/frontend/environments-randompolygon/output_3_2.png)
+![png](/assets/frontend/environments-randompolygon/output_3_2.png)
 
 [View Jupyter Notebook](https://github.com/eric-heiden/mpb/blob/master/plotting/Polygon%20Maze%20Generation.ipynb){: .btn .btn-green }
 
@@ -121,7 +121,7 @@ m.visualize_trajectories(ignore_planners='cforest, bfmt',
                          num_colors=10)
 ```
     
-![png](/images/frontend/environments-polygon/output_7_0.png)
+![png](/assets/frontend/environments-polygon/output_7_0.png)
 
 [View Jupyter Notebook](https://github.com/eric-heiden/mpb/blob/master/plotting/Polygon%20Worlds%20Testing.ipynb){: .btn .btn-green }
     

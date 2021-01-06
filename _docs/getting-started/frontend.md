@@ -82,7 +82,7 @@ mpb.visualize_trajectories()
 ```
 
     
-![png](/images/frontend/output_12_1.png)
+![png](/assets/frontend/output_12_1.png)
     
 ## Plot Statistics
 
@@ -94,7 +94,7 @@ mpb.plot_planner_stats()
 ```
 
     
-![png](/images/frontend/output_14_1.png)
+![png](/assets/frontend/output_14_1.png)
     
 
 
@@ -127,7 +127,7 @@ plt.tight_layout()
 plt.savefig("informed_rrt_star_anytime.pdf")
 ```
     
-![png](/images/frontend/output_18_1.png)
+![png](/assets/frontend/output_18_1.png)
 
 ## Parallel Execution    
 
@@ -149,7 +149,7 @@ for time in [.5, 1, 10]:
 pool.run_parallel('test_parallel', runs=5)
 ```
     
-![png](/images/frontend/output_20_6.png)
+![png](/assets/frontend/output_20_6.png)
     
 
 
@@ -160,6 +160,6 @@ pool.visualize_trajectories(run_id='1')
 
 
     
-![png](/images/frontend/output_21_0.png)
+![png](/assets/frontend/output_21_0.png)
     
 
