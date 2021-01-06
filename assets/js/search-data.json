@@ -2,181 +2,181 @@
     "doc": "Bench-MR",
     "title": "Bench-MR",
     "content": " ",
-    "url": "/",
+    "url": "https://robot-motion.github.io/bench-mr/",
     "relUrl": "/"
   },"1": {
     "doc": "Contributions",
     "title": "Contributions",
     "content": " ",
-    "url": "/docs/contribute/",
+    "url": "https://robot-motion.github.io/bench-mr/docs/contribute/",
     "relUrl": "/docs/contribute/"
   },"2": {
     "doc": "Contributions",
     "title": "Third-party libraries",
     "content": "This project uses forks from some of the following repositories which are integrated into this project as submodules: . | The Open Motion Planning Library (OMPL) | Search-Based Planning Library (SBPL) | hbanzhaf/steering_functions | . Besides the above contributions, the authors thank Nathan Sturtevant’s Moving AI Lab for providing the 2D Pathfinding \"MovingAI\" Datasets. ",
-    "url": "/docs/contribute/#third-party-libraries",
+    "url": "https://robot-motion.github.io/bench-mr/docs/contribute/#third-party-libraries",
     "relUrl": "/docs/contribute/#third-party-libraries"
   },"3": {
     "doc": "Contributions",
     "title": "Developers",
     "content": ". | Eric Heiden (University of Southern California, Los Angeles, USA) | Luigi Palmieri (Robert Bosch GmbH, Corporate Research, Stuttgart, Germany) | Leonard Bruns (KTH Royal Institute of Technology, Stockholm, Sweden) | Ziang Liu (University of Southern California, Los Angeles, USA) | . ",
-    "url": "/docs/contribute/#developers",
+    "url": "https://robot-motion.github.io/bench-mr/docs/contribute/#developers",
     "relUrl": "/docs/contribute/#developers"
   },"4": {
     "doc": "Frontend",
     "title": "Python Frontend",
     "content": "The MPB instance is created via the following constructor: . mpb = MPB(config_file = os.path.join(MPB_BINARY_DIR, 'benchmark_template.json'), output_path = '') . | Argument | Description | . | config_file | Path name of the configuration JSON file this experiment is based on | . | output_path | Path where the resulting log files are stored from this experiment | . ",
-    "url": "/docs/frontend/#python-frontend",
+    "url": "https://robot-motion.github.io/bench-mr/docs/frontend/#python-frontend",
     "relUrl": "/docs/frontend/#python-frontend"
   },"5": {
     "doc": "Frontend",
     "title": "Frontend",
     "content": " ",
-    "url": "/docs/frontend/",
+    "url": "https://robot-motion.github.io/bench-mr/docs/frontend/",
     "relUrl": "/docs/frontend/"
   },"6": {
     "doc": "Environments",
     "title": "Environments",
     "content": "Bench-MR supports several types of environments, based on uniform grids and polygonal shapes. ",
-    "url": "/docs/frontend/environments/",
+    "url": "https://robot-motion.github.io/bench-mr/docs/frontend/environments/",
     "relUrl": "/docs/frontend/environments/"
   },"7": {
     "doc": "Grid-based Environments",
     "title": "Grid-based Environments",
     "content": " ",
-    "url": "/docs/frontend/environments/grid/",
+    "url": "https://robot-motion.github.io/bench-mr/docs/frontend/environments/grid/",
     "relUrl": "/docs/frontend/environments/grid/"
   },"8": {
     "doc": "Grid-based Environments",
     "title": "Load from Image",
     "content": "Occupancy grid maps can be loaded from monochromatic images. Based on a defined threshold, darker pixels become occupied grid cells, brighter pixels become unoccupied grid cells. The grid can optionally be scaled (while maintaining its original aspect ratio in case just one desired dimension is given). MPB.set_image_grid_env(filename: str, desired_width: int = 0, desired_height: int = 0, occupancy_threshold: float = 0.5) . | Argument | Description | . | filename | Filename of the image | . | desired_width | Desired number of horizontal grid cells (keep unchanged if zero) | . | desired_height | Desired number of vertical grid cells (keep unchanged if zero) | . | occupancy_threshold | Pixels with luminance less than this threshold are considered occupied cells | . Example . mpb.set_image_grid_env(\"image_mazes/intel-lab.png\", desired_width=300 * 0.5, desired_height=300 * 0.5, occupancy_threshold=0.98) mpb.set_planners(['rrt', 'informed_rrt_star']) mpb.set_steer_functions(['reeds_shepp']) mpb.set_start(50 * 0.5, 230 * 0.5, 0) mpb.set_goal(235 * 0.5, 40 * 0.5, 0) mpb.run(id='test_run_intel', runs=1) mpb.visualize_trajectories(fig_width=5, fig_height=5) . View Jupyter Notebook . ",
-    "url": "/docs/frontend/environments/grid/#load-from-image",
+    "url": "https://robot-motion.github.io/bench-mr/docs/frontend/environments/grid/#load-from-image",
     "relUrl": "/docs/frontend/environments/grid/#load-from-image"
   },"9": {
     "doc": "Grid-based Environments",
     "title": "Procedurally Generated Corridors",
     "content": "Corridor-like environments get generated procedurally via the RRT algorithm that extends the current 2D position in either a vertical or a horizontal direction. The resulting tree is created for a defined number of branches and cells within a given radius are set to unoccupied. The cells at the grid boundary are always occupied. MPB.set_corridor_grid_env(width: int = 50, height: int = 50, branches: int = 40, radius: float = 3., seed: int = 1) . | Argument | Description | . | width | Number of horizontal grid cells | . | height | Number of vertical grid cells | . | branches | Number of “corridors” to generate (may overlap) | . | radius | Number of cells in both directions horizontally and vertically to free for each generated corridor | . | seed | Seed to use for the random number generator | . Example . parameters = [3, 4, 5, 6, 7, 8] plt.figure(figsize=(len(parameters) * 5, 5)) for i, parameter in enumerate(parameters): plt.subplot(1, len(parameters), i+1) m = MPB() m.set_corridor_grid_env(100, 100, branches=100, radius=parameter) m.set_planners(['informed_rrt_star']) m[\"max_planning_time\"] = 1 m.run(id=\"corridor\", show_progress_bar=False, runs=1) run = json.load(open(m.results_filename, \"r\"))[\"runs\"][0] plot_env(run[\"environment\"], draw_start_goal_thetas=False, draw_start_goal=False, set_title=False) plt.title(\"$r = %g$\" % parameter, fontsize=24) . View Jupyter Notebook . ",
-    "url": "/docs/frontend/environments/grid/#procedurally-generated-corridors",
+    "url": "https://robot-motion.github.io/bench-mr/docs/frontend/environments/grid/#procedurally-generated-corridors",
     "relUrl": "/docs/frontend/environments/grid/#procedurally-generated-corridors"
   },"10": {
     "doc": "Grid-based Environments",
     "title": "Random Grids",
     "content": "Given a ratio of occupied vs. unoccupied grid cells, grid environments can be randomly generated. The cells at the grid boundary are always occupied. MPB.set_random_grid_env(width: int = 50, height: int = 50, obstacle_ratio: float = 0.1, seed: int = 1): . | Argument | Description | . | width | Number of horizontal grid cells | . | height | Number of vertical grid cells | . | obstacle_ratio | Fraction of cells to be occupied relative to the total number of cells in the grid | . | seed | Seed to use for the random number generator | . Example . parameters = [0.01, 0.015, 0.02, 0.025, 0.03] plt.figure(figsize=(len(parameters) * 5, 5)) for i, parameter in enumerate(parameters): plt.subplot(1, len(parameters), i+1) m = MPB() m.set_random_grid_env(100, 100, obstacle_ratio=parameter) m.set_planners(['informed_rrt_star']) m[\"max_planning_time\"] = 1 m.run(id=\"corridor\", show_progress_bar=False, runs=1) run = json.load(open(m.results_filename, \"r\"))[\"runs\"][0] plot_env(run[\"environment\"], draw_start_goal_thetas=False, draw_start_goal=False, set_title=False) plt.title(\"$\\gamma = %g \\%%$\" % (parameter * 100), fontsize=24) plt.savefig(\"obstacle_ratios.pdf\", bbox_inches='tight') # plt.savefig(\"obstacle_ratios.png\", bbox_inches='tight') . View Jupyter Notebook . ",
-    "url": "/docs/frontend/environments/grid/#random-grids",
+    "url": "https://robot-motion.github.io/bench-mr/docs/frontend/environments/grid/#random-grids",
     "relUrl": "/docs/frontend/environments/grid/#random-grids"
   },"11": {
     "doc": "Polygon-based Environments",
     "title": "Polygon-based Environments",
     "content": "Mazes of this type consist of convex shapes that are stored as paths in a SVG file. We used Inkscape to provide the following example mazes: . View Jupyter Notebook . ",
-    "url": "/docs/frontend/environments/polygon/",
+    "url": "https://robot-motion.github.io/bench-mr/docs/frontend/environments/polygon/",
     "relUrl": "/docs/frontend/environments/polygon/"
   },"12": {
     "doc": "Polygon-based Environments",
     "title": "Random Polygon Maze Generation",
     "content": "Random shapes can be generated via the provided Python script. The PolygonMazeGenerator can generate random convex obstacles, and save them to a SVG file which MPB can load as environment. from polygon_maze_generator import PolygonMazeGenerator as PMG . Create Random Convex Obstacle . A single random shape (list of 2D vertices) is generated as a convex hull from a set of random points which are drawn from a 2D Gaussian distribution with the given horizontal and vertical standard deviation. To ensure a minimum extent in both directions, the points are further moved away from the origin by the provided min_width and min_height parameters. PMG.create_convex(min_width=0.5, min_height=0.5, num_points=10, std_width=2., std_height=2.) . | Argument | Description | . | min_width | Minimum extent into positive and negative x direction | . | min_height | Minimum extent into positive and negative y direction | . | num_points | Number of random points to sample | . | std_width | Standard deviation of the horizontal dimension of the Gaussian from which the points are drawn | . | std_height | Standard deviation of the vertical dimension of the Gaussian from which the points are drawn | . Save Obstacles as SVG . PMG.save_svg(obstacles, svg_filename) . | Argument | Description | . | obstacles | List of obstacles (list of 2D vertices) | . | svg_filename | File name of the SVG file to save | . Example . from polygon_maze_generator import PolygonMazeGenerator as PMG obstacles = [] spacing = 15 for x in range(0, 100, spacing): for y in range(0, 100, spacing): offset = np.random.randn(2) * 5 obstacles.append(PMG.create_convex() + np.array([x, y]) + offset) PMG.save_svg(obstacles, \"test.svg\") PMG.plot(obstacles) . Use MPB.set_polygon_env(svg_filename) to set the SVG file as environment for the given MPB instance. m = MPB() m[\"max_planning_time\"] = 30 m.set_start(10., 10., 45 * np.pi / 180) m.set_goal(90., 82., 45 * np.pi / 180) m.set_polygon_env(os.path.abspath(\"test.svg\")) m.set_planners(['prm']) if m.run(id=\"test\", runs=1) == 0: m.visualize_trajectories(draw_start_goal_thetas=True, plot_every_nth_polygon=10, silence=True) . View Jupyter Notebook . ",
-    "url": "/docs/frontend/environments/polygon/#random-polygon-maze-generation",
+    "url": "https://robot-motion.github.io/bench-mr/docs/frontend/environments/polygon/#random-polygon-maze-generation",
     "relUrl": "/docs/frontend/environments/polygon/#random-polygon-maze-generation"
   },"13": {
     "doc": "Polygon-based Environments",
     "title": "Load Maze from SVG File",
     "content": "The following example demonstrates how to run several planners on the warehouse polygon-based environment, which constitutes one of the images in Figure 1 of our paper. In this example, the collision shape of the robot is also changed to warehouse_robot.svg. Example . m = MPB() scenario = \"warehouse\" m[\"max_planning_time\"] = 30 m[\"env.start\"] = {\"theta\": -1.58, \"x\": 7.5, \"y\": -10} m[\"env.goal\"] = {\"theta\": 1.58, \"x\": 76.5, \"y\": -10} m[\"env.type\"] = \"polygon\" m.set_polygon_env(\"polygon_mazes/%s.svg\" % scenario) m[\"env.collision.robot_shape_source\"] = \"polygon_mazes/warehouse_robot.svg\" m.set_planners([]) m.set_planners(['bfmt', 'cforest', 'prm', 'prm_star', 'informed_rrt_star', 'sbpl_mha']) m[\"steer.car_turning_radius\"] = 2 m[\"sbpl.scaling\"] = 1 m.run(id=\"test_%s\" % scenario, runs=1) . Visualize the trajectories: . m.visualize_trajectories(ignore_planners='cforest, bfmt', draw_start_goal_thetas=True, plot_every_nth_polygon=8, fig_width=8, fig_height=8, silence=True, save_file=\"plots/%s.pdf\" % scenario, num_colors=10) . View Jupyter Notebook . ",
-    "url": "/docs/frontend/environments/polygon/#load-maze-from-svg-file",
+    "url": "https://robot-motion.github.io/bench-mr/docs/frontend/environments/polygon/#load-maze-from-svg-file",
     "relUrl": "/docs/frontend/environments/polygon/#load-maze-from-svg-file"
   },"14": {
     "doc": "Getting Started",
     "title": "Getting Started",
     "content": "This project contains several build targets in the experiments/ folder. The main application for benchmarking is the benchmark executable that gets built in the bin/ folder in the project directory. ",
-    "url": "/docs/getting-started/",
+    "url": "https://robot-motion.github.io/bench-mr/docs/getting-started/",
     "relUrl": "/docs/getting-started/"
   },"15": {
     "doc": "Getting Started",
     "title": "Running a benchmark",
     "content": "Python Frontend (Jupyter Notebooks) . Run jupyter lab from the project folder and navigate to the plotting/ directory where you can find several notebooks that can execute experiments and allow you to plot and analyze the benchmark results. Python Frontend Tutorial . C++ Backend . ⚠ It is recommended to run the benchmarks from the Jupyter frontend. Alternatively, you have the option to manually run benchmarks via JSON configuration files that define which planners to execute, and many other settings concerning environments, steer functions, etc. In the bin/ folder, start a benchmark via ./benchmark configuration.json . where configuration.json is any of the json files in the benchmarks/ folder. Optionally, if multiple CPUs are available, multiple benchmarks can be run in parallel using GNU Parallel, e.g., via . parallel -k ./benchmark ::: ../benchmarks/corridor_radius_* . This command will execute the experiments with varying corridor sizes in parallel. For more information, consult the GNU Parallel tutorial. This will eventually output a line similar to . Info: Saved path statistics log file &lt;...&gt; . The resulting JSON log file can be used for visualizing the planning results and plotting the statistics. To get started, check out the Jupyter notebooks inside the plotting/ folder where all the plotting tools are provided. ",
-    "url": "/docs/getting-started/#running-a-benchmark",
+    "url": "https://robot-motion.github.io/bench-mr/docs/getting-started/#running-a-benchmark",
     "relUrl": "/docs/getting-started/#running-a-benchmark"
   },"16": {
     "doc": "Python Frontend",
     "title": "Python Frontend",
     "content": "This page demonstrates the Python frontend of Bench-MR. ",
-    "url": "/docs/getting-started/frontend/",
+    "url": "https://robot-motion.github.io/bench-mr/docs/getting-started/frontend/",
     "relUrl": "/docs/getting-started/frontend/"
   },"17": {
     "doc": "Python Frontend",
     "title": "Construct MPB Instance",
     "content": "The MPB class exposes the settings and several helper functions of an experiment that runs on a single CPU. A single experiment can consist of multiple runs in different environments of the same type, using a set of predefined planners, steer functions, and post-smoothing methods. from mpb import MPB mpb = MPB() . ",
-    "url": "/docs/getting-started/frontend/#construct-mpb-instance",
+    "url": "https://robot-motion.github.io/bench-mr/docs/getting-started/frontend/#construct-mpb-instance",
     "relUrl": "/docs/getting-started/frontend/#construct-mpb-instance"
   },"18": {
     "doc": "Python Frontend",
     "title": "Configuration",
     "content": "Any configuration values (or subtrees) can be set and retrieved using the bracket operator on the MPB instance. The key is a string and by using the dot-notation, a path can be given: . mpb[\"ompl.seed\"] = 4 # set the seed of the OMPL planners . Some helper functions are available to set environment properties, and configure the planners, steer functions and post smoothers: . mpb.set_corridor_grid_env(radius = 3) mpb.set_planners(['rrt', 'rrt_star', 'informed_rrt_star']) mpb.set_steer_functions(['reeds_shepp']) . Run the motion planning benchmark: . mpb.run(id='test_run', runs=3) # optional run ID, number of runs (environments) mpb.print_info() . +++++++++++++++++++++++++ Run #0 (1 / 3) +++++++++++++++++++++++++ + Steering: Reeds-Shepp + Environment: grid + Planners: RRT, RRTstar, InformedRRTstar + Found solution: 3 / 3 + Exact solution: 3 / 3 + Found colliding: 0 / 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ +++++++++++++++++++++++++ Run #1 (2 / 3) +++++++++++++++++++++++++ + Steering: Reeds-Shepp + Environment: grid + Planners: RRT, RRTstar, InformedRRTstar + Found solution: 3 / 3 + Exact solution: 3 / 3 + Found colliding: 0 / 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ +++++++++++++++++++++++++ Run #2 (3 / 3) +++++++++++++++++++++++++ + Steering: Reeds-Shepp + Environment: grid + Planners: RRT, RRTstar, InformedRRTstar + Found solution: 3 / 3 + Exact solution: 3 / 3 + Found colliding: 0 / 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ . ",
-    "url": "/docs/getting-started/frontend/#configuration",
+    "url": "https://robot-motion.github.io/bench-mr/docs/getting-started/frontend/#configuration",
     "relUrl": "/docs/getting-started/frontend/#configuration"
   },"19": {
     "doc": "Python Frontend",
     "title": "Visualize Trajectories",
     "content": "Visualize the planner trajectories: . mpb.visualize_trajectories() . ",
-    "url": "/docs/getting-started/frontend/#visualize-trajectories",
+    "url": "https://robot-motion.github.io/bench-mr/docs/getting-started/frontend/#visualize-trajectories",
     "relUrl": "/docs/getting-started/frontend/#visualize-trajectories"
   },"20": {
     "doc": "Python Frontend",
     "title": "Plot Statistics",
     "content": "Plot planner statistics: . mpb.plot_planner_stats() . We can also use the frontend to compare the solutions of the anytime planners over the course of a given time interval. Let’s take an Informed RRT* planner and run it on the time allotments of 0.5s, 1s and 10s: . ms = [] for time in [.5, 1, 10]: m = MPB() m[\"max_planning_time\"] = time m.set_corridor_grid_env(width=150, height=150, branches=100, radius=3) m.set_planners(['informed_rrt_star']) m.set_steer_functions(['reeds_shepp']) m.run('anytime_%.1f' % time, runs=1) ms.append(m) . Visualize the results: . plt.figure(figsize=(6 * len(ms), 6)) for i, m in enumerate(ms): plt.subplot(1, len(ms), i+1) m.visualize_trajectories(headless=True, combine_views=False, use_existing_subplot=True, show_legend=False) plt.title(\"%.1f s\" % m[\"max_planning_time\"]) plt.tight_layout() plt.savefig(\"informed_rrt_star_anytime.pdf\") . ",
-    "url": "/docs/getting-started/frontend/#plot-statistics",
+    "url": "https://robot-motion.github.io/bench-mr/docs/getting-started/frontend/#plot-statistics",
     "relUrl": "/docs/getting-started/frontend/#plot-statistics"
   },"21": {
     "doc": "Python Frontend",
     "title": "Parallel Execution",
     "content": "Multiple benchmarks can also be run in parallel using MultipleMPB: . from mpb import MultipleMPB pool = MultipleMPB() for time in [.5, 1, 10]: m = MPB() m[\"max_planning_time\"] = time m.set_corridor_grid_env(width=150, height=150, branches=100, radius=3) m.set_planners(['informed_rrt_star']) m.set_steer_functions(['reeds_shepp']) pool.benchmarks.append(m) pool.run_parallel('test_parallel', runs=5) . pool.visualize_trajectories(run_id='1') . ",
-    "url": "/docs/getting-started/frontend/#parallel-execution",
+    "url": "https://robot-motion.github.io/bench-mr/docs/getting-started/frontend/#parallel-execution",
     "relUrl": "/docs/getting-started/frontend/#parallel-execution"
   },"22": {
     "doc": "Installation",
     "title": "Installation",
     "content": "Bench-MR is known to work on UNIX-based operating systems and uses CMake to find the C++ dependencies. ",
-    "url": "/docs/installation",
+    "url": "https://robot-motion.github.io/bench-mr/docs/installation",
     "relUrl": "/docs/installation"
   },"23": {
     "doc": "Installation",
     "title": "Dependencies",
     "content": ". | libccd-1.4+ (because of the chomp implementation used here), included as submodule and automatically built | OMPL - included as submodule, needs to be installed first | nlohmann/json - not provided, needs to be installed first | SBPL - not provided, needs to be installed | Jupyter Lab with Python 3 kernel for plotting and evaluation (see plotting/README.md) | . The following boost libraries (version 1.58+) need to be installed: . | boost_serialization | boost_filesystem | boost_system | boost_program_options | . The provided CHOMP implementation requires, GLUT and other OpenGL libraries to be present, which can be installed through the freeglut3-dev package. PNG via libpng-dev, expat via libexpat1-dev. Optionally, to support visual debugging, Qt5 with the Charts and Svg modules needs to be installed. ",
-    "url": "/docs/installation#dependencies",
+    "url": "https://robot-motion.github.io/bench-mr/docs/installation#dependencies",
     "relUrl": "/docs/installation#dependencies"
   },"24": {
     "doc": "Installation",
     "title": "Frontend Dependencies",
     "content": "The following system-wide dependencies need to be set up: . | Python 3.5+ | PIP 3 (install via apt install python3-pip) | Jupyter Lab | . The Python frontend dependencies are defined in plotting/requirements.txt which can be installed through . pip install -r plotting/requirements.txt . ",
-    "url": "/docs/installation#frontend-dependencies",
+    "url": "https://robot-motion.github.io/bench-mr/docs/installation#frontend-dependencies",
     "relUrl": "/docs/installation#frontend-dependencies"
   },"25": {
     "doc": "Build Instructions",
     "title": "Build Instructions",
     "content": ". | Check out the submodules git submodule init &amp;&amp; git submodule update . | Create build and log folders mkdir build . | Build project cd build cmake .. cmake --build . -- -j4 . If you see an error during the cmake .. command that Qt or one of the Qt modules could not be found, you can ignore this message as this dependency is optional. | . ",
-    "url": "/docs/installation/build/",
+    "url": "https://robot-motion.github.io/bench-mr/docs/installation/build/",
     "relUrl": "/docs/installation/build/"
   },"26": {
     "doc": "Using Docker",
     "title": "Using Docker",
     "content": ". | Build the Docker image docker build -t mpb . | Run the image to be able to access the Jupyter Lab instance on port 8888 in your browser from where you can run and evaluate benchmarks: docker run -p 8888:8888 -it mpb . Optionally, you can mount your local mpb copy to its respective folder inside the docker via . docker run -p 8888:8888 -v $(pwd):/root/code/mpb -it mpb # use %cd% in place of $(pwd) on Windows . Now you can edit files from outside the docker and use this container to build and run the experiments. You can connect multiple times to this same running docker, for example if you want to access it from multiple shell instances via . docker exec -it $(docker ps -qf \"ancestor=mpb\") bash . Alternatively, run the provided script ./docker_connect.sh that executes this command. | . ",
-    "url": "/docs/installation/docker/",
+    "url": "https://robot-motion.github.io/bench-mr/docs/installation/docker/",
     "relUrl": "/docs/installation/docker/"
   },"27": {
     "doc": "Markdown kitchen sink",
     "title": "Header 1",
     "content": "This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. ",
-    "url": "/docs/kitchen/#header-1",
+    "url": "https://robot-motion.github.io/bench-mr/docs/kitchen/#header-1",
     "relUrl": "/docs/kitchen/#header-1"
   },"28": {
     "doc": "Markdown kitchen sink",
     "title": "Header 2",
     "content": "This is a blockquote following a header. When something is important enough, you do it even if the odds are not in your favor. Header 3 . // Javascript code with syntax highlighting. var fun = function lang(l) { dateformat.i18n = require('./lang/' + l) return true; } . # Ruby code with syntax highlighting GitHubPages::Dependencies.gems.each do |gem, version| s.add_dependency(gem, \"= #{version}\") end . Header 4 with code not transformed . | This is an unordered list following a header. | This is an unordered list following a header. | This is an unordered list following a header. | . Header 5 . | This is an ordered list following a header. | This is an ordered list following a header. | This is an ordered list following a header. | . Header 6 . | head1 | head two | three | . | ok | good swedish fish | nice | . | out of stock | good and plenty | nice | . | ok | good oreos | hmm | . | ok | good zoute drop | yumm | . There’s a horizontal rule below this. Here is an unordered list: . | Item foo | Item bar | Item baz | Item zip | . And an ordered list: . | Item one | Item two | Item three | Item four | . And a nested list: . | level 1 item . | level 2 item | level 2 item . | level 3 item | level 3 item | . | . | level 1 item . | level 2 item | level 2 item | level 2 item | . | level 1 item . | level 2 item | level 2 item | . | level 1 item | . Nesting an ol in ul in an ol . | level 1 item (ul) . | level 2 item (ol) | level 2 item (ol) . | level 3 item (ul) | level 3 item (ul) | . | . | level 1 item (ul) . | level 2 item (ol) | level 2 item (ol) . | level 3 item (ul) | level 3 item (ul) | . | level 4 item (ol) | level 4 item (ol) . | level 3 item (ul) | level 3 item (ul) | . | . | level 1 item (ul) | . And a task list . | Hello, this is a TODO item | Hello, this is another TODO item | Goodbye, this item is done | . Small image . Large image . Definition lists can be used with HTML syntax. Name Godzilla Born 1952 Birthplace Japan Color Green Multiple description terms and values . Term Brief description of Term Longer Term Longer description of Term, possibly more than one line Term First description of Term, possibly more than one line Second description of Term, possibly more than one line . Term1 Term2 Single description of Term1 and Term2, possibly more than one line Term1 Term2 First description of Term1 and Term2, possibly more than one line Second description of Term1 and Term2, possibly more than one line . More code . Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this. The final element. ",
-    "url": "/docs/kitchen/#header-2",
+    "url": "https://robot-motion.github.io/bench-mr/docs/kitchen/#header-2",
     "relUrl": "/docs/kitchen/#header-2"
   },"29": {
     "doc": "Markdown kitchen sink",
     "title": "Markdown kitchen sink",
     "content": "Text can be bold, italic, or strikethrough. Link to another page. There should be whitespace between paragraphs. There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project. ",
-    "url": "/docs/kitchen/",
+    "url": "https://robot-motion.github.io/bench-mr/docs/kitchen/",
     "relUrl": "/docs/kitchen/"
   }
 }
