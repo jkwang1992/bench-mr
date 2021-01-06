@@ -22,8 +22,8 @@ title: Bench-MR
 #email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Benchmarking motion planners for wheeled mobile robots in cluttered environments on scenarios close to real-world settings in autonomous driving, service and intralogistic robotics.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/bench-mr" # the subpath of your site, e.g. /blog
+url: "https://robot-motion.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: ""
 github_username:  robot-motion
 
