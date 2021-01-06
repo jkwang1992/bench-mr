@@ -10,6 +10,8 @@ nav_order: 2
 
 This page demonstrates the Python frontend of Bench-MR.
 
+[View Jupyter Notebook](https://github.com/eric-heiden/mpb/blob/master/plotting/Frontend.ipynb){: .btn .btn-green }
+
 ## Construct MPB Instance
 
 The `MPB` class exposes the settings and several helper functions of an experiment that runs on a single CPU. A single experiment can consist of multiple runs in different environments of the same type, using a set of predefined planners, steer functions, and post-smoothing methods.
@@ -163,3 +165,5 @@ pool.visualize_trajectories(run_id='1')
 ![png]({{ site.baseurl }}/assets/frontend/output_21_0.png)
     
 
+
+[View Jupyter Notebook](https://github.com/eric-heiden/mpb/blob/master/plotting/Frontend.ipynb){: .btn .btn-green }
