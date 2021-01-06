@@ -18,9 +18,9 @@ in the `bin/` folder in the project directory.
 
 Run `jupyter lab` from the project folder and navigate to the `plotting/` directory where you can find several notebooks that can execute experiments and allow you to plot and analyze the benchmark results.
 
-![gif](/assets/mpb_parallel.gif)
+![gif]({{ site.baseurl }}/assets/mpb_parallel.gif)
 
-[Python Frontend Tutorial](/docs/getting-started/frontend){: .btn .btn-blue }
+[Python Frontend Tutorial](frontend){: .btn .btn-blue }
 
 ### C++ Backend
 
