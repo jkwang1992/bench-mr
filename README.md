@@ -1,3 +1,5 @@
+![GitHub Pages](https://github.com/robot-motion/bench-mr/workflows/Build%20and%20deploy%20Jekyll%20site%20to%20GitHub%20Pages/badge.svg)
+
 # Bench-MR
 Benchmarking motion planners for wheeled mobile robots in cluttered environments on scenarios close to real-world settings in autonomous driving, service and intralogistic robotics.
 
