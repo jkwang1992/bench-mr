@@ -22,7 +22,7 @@ bundle install
 ```
 bundle exec jekyll serve
 ```
-5. Browse to [http://localhost:4000](http://localhost:4000){:target="_blank"}
+5. Browse to [http://localhost:4000](http://localhost:4000)
 
 
 ## Developers
