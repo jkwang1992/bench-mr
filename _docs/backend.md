@@ -1,12 +1,12 @@
 ---
 layout: default
-title:  "Frontend"
+title:  "Backend"
 date:   2021-01-04 13:20:59 +0100
 has_children: true
-nav_order: 3
+nav_order: 4
 ---
 
-# Python Frontend
+# C++ Backend
 
 The MPB instance is created via the following constructor:
 
