@@ -3,7 +3,7 @@ layout: default
 title:  "Grid-based Environments"
 date:   2021-01-04 13:20:59 +0100
 parent: Environments
-grand_parent: Frontend
+grand_parent: Components
 ---
 
 # Grid-based Environments

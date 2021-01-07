@@ -9,3 +9,5 @@ nav_order: 5
 # Results
 
 The following results are dynamically updated as soon as the code base is updated on GitHub.
+{: .fs-6 .fw-300 }
+

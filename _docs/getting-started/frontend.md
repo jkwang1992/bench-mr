@@ -3,7 +3,7 @@ layout: default
 title:  "Python Frontend"
 date:   2021-01-04 13:20:59 +0100
 parent: "Getting Started"
-nav_order: 2
+nav_order: 1
 ---
 
 # Python Frontend
@@ -20,6 +20,19 @@ The `MPB` class exposes the settings and several helper functions of an experime
 from mpb import MPB
 mpb = MPB()
 ```
+
+The MPB instance is created via the following constructor:
+
+```py
+mpb = MPB(config_file = os.path.join(MPB_BINARY_DIR, 'benchmark_template.json'),
+          output_path = '')
+```
+
+| Argument        | Description        |
+|:----------------|:-------------------|
+| config_file           | Path name of the configuration JSON file this experiment is based on |
+| output_path           | Path where the resulting log files are stored from this experiment   |
+
 
 ## Configuration
 

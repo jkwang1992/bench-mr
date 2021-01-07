@@ -3,7 +3,7 @@ layout: default
 title:  "Add a Custom Metric"
 date:   2021-01-04 13:20:59 +0100
 parent: Metrics
-grand_parent: Frontend
+grand_parent: Components
 nav_order: 3
 ---
 

@@ -2,7 +2,7 @@
 layout: default
 title:  "Metrics"
 date:   2021-01-04 13:20:59 +0100
-parent: "Frontend"
+parent: "Components"
 has_children: true
 nav_order: 3
 ---
