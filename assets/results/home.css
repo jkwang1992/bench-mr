@@ -1,11 +1,9 @@
 @charset "UTF-8";
 
 #select_box {
-	width: 15%;
-	height: 30%;
+	/*height: 30%;*/
 	padding: 20px;
-	margin-left: 30px;
-	margin-top: 30px;
+	margin: 0 auto;
 	background-color: rgba(234, 235, 237, 0.6);
 	
 	border-style: solid;
@@ -15,8 +13,8 @@
 }
 
 #submit_button {
-	margin-left: 30%;
-	margin-top: 5%;
+	margin: 0 auto;
+	min-width: 160px;
 }
 
 .table thead th {
@@ -25,7 +23,7 @@
 }
 
 #data_table_area {
-	width: 60%;
+	/*width: 60%;*/
 	height: 50%;
 	margin-left: 20px;
 	margin-top: 30px;
@@ -35,7 +33,7 @@
 }
 
 #home_message {
-	margin-left: 25%;
+	/*margin-left: 25%;*/
 	text-align: left;
 	margin-top: 100px;
 	height: 10%;
