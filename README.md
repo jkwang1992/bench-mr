@@ -14,19 +14,15 @@ The results website can be accessed here: https://robot-motion.github.io/bench-m
 ```
 gem install jekyll bundler
 ```
-3. Create a new Jekyll site at `./myblog`.
+3. Install site modules
 ```
-jekyll new myblog
+bundle install
 ```
-4. Change into your new directory.
-```
-cd myblog
-```
-5. Build the site and make it available on a local server.
+4. Build the site and make it available on a local server.
 ```
 bundle exec jekyll serve
 ```
-6. Browse to [http://localhost:4000](http://localhost:4000){:target="_blank"}
+5. Browse to [http://localhost:4000](http://localhost:4000){:target="_blank"}
 
 
 ## Developers
