@@ -23,276 +23,300 @@
     "url": "/bench-mr/docs/components/",
     "relUrl": "/docs/components/"
   },"4": {
+    "doc": "Collision Checking",
+    "title": "Collision Checking",
+    "content": "Bench-MR supports collision detection for a robot represented by a point or a convex polygon. The env.collision.collision_model defines the collision model: . | Value | Description | . | 0 | Point-based collision model | . | 1 | Polygon-based collision model | . For polygon-based collision detection, the SVG file representing the robot shape can be optionally set via the env.collision.robot_shape_source setting (see below). Example . Set up warehouse2 scenario with RRT as the planner. m = MPB() m.set_planners(['rrt']) m[\"max_planning_time\"] = 60 m[\"env.start\"] = {\"theta\": -1.58, \"x\": 7.5, \"y\": -10} m[\"env.goal\"] = {\"theta\": -1.58, \"x\": 116, \"y\": -70} m[\"env.type\"] = \"polygon\" m[\"env.polygon.source\"] = \"polygon_mazes/warehouse2.svg\" . Point-based collision model . m[\"env.collision.collision_model\"] = 0 m.run(runs=1) m.visualize_trajectories(draw_start_goal_thetas=True, plot_every_nth_polygon=10, silence=True) . Polygon-based collision model . We use the env.collision.robot_shape_source setting to define a collision shape for the robot to load from a SVG file. m[\"env.collision.collision_model\"] = 1 m[\"env.collision.robot_shape_source\"] = \"polygon_mazes/warehouse_robot.svg\" m.run(runs=1) m.visualize_trajectories(draw_start_goal_thetas=True, plot_every_nth_polygon=10, silence=True) . View Jupyter Notebook . ",
+    "url": "/bench-mr/docs/components/collision/",
+    "relUrl": "/docs/components/collision/"
+  },"5": {
     "doc": "Environments",
     "title": "Environments",
     "content": "Bench-MR supports several types of environments, based on uniform grids and polygonal shapes. ",
     "url": "/bench-mr/docs/components/environments/",
     "relUrl": "/docs/components/environments/"
-  },"5": {
+  },"6": {
     "doc": "Grid-based Environments",
     "title": "Grid-based Environments",
     "content": " ",
     "url": "/bench-mr/docs/components/environments/grid/",
     "relUrl": "/docs/components/environments/grid/"
-  },"6": {
+  },"7": {
     "doc": "Grid-based Environments",
     "title": "Load from Image",
     "content": "Occupancy grid maps can be loaded from monochromatic images. Based on a defined threshold, darker pixels become occupied grid cells, brighter pixels become unoccupied grid cells. The grid can optionally be scaled (while maintaining its original aspect ratio in case just one desired dimension is given). MPB.set_image_grid_env(filename: str, desired_width: int = 0, desired_height: int = 0, occupancy_threshold: float = 0.5) . | Argument | Description | . | filename | Filename of the image | . | desired_width | Desired number of horizontal grid cells (keep unchanged if zero) | . | desired_height | Desired number of vertical grid cells (keep unchanged if zero) | . | occupancy_threshold | Pixels with luminance less than this threshold are considered occupied cells | . Example . mpb.set_image_grid_env(\"image_mazes/intel-lab.png\", desired_width=300 * 0.5, desired_height=300 * 0.5, occupancy_threshold=0.98) mpb.set_planners(['rrt', 'informed_rrt_star']) mpb.set_steer_functions(['reeds_shepp']) mpb.set_start(50 * 0.5, 230 * 0.5, 0) mpb.set_goal(235 * 0.5, 40 * 0.5, 0) mpb.run(id='test_run_intel', runs=1) mpb.visualize_trajectories(fig_width=5, fig_height=5) . View Jupyter Notebook . ",
     "url": "/bench-mr/docs/components/environments/grid/#load-from-image",
     "relUrl": "/docs/components/environments/grid/#load-from-image"
-  },"7": {
+  },"8": {
     "doc": "Grid-based Environments",
     "title": "Procedurally Generated Corridors",
     "content": "Corridor-like environments get generated procedurally via the RRT algorithm that extends the current 2D position in either a vertical or a horizontal direction. The resulting tree is created for a defined number of branches and cells within a given radius are set to unoccupied. The cells at the grid boundary are always occupied. MPB.set_corridor_grid_env(width: int = 50, height: int = 50, branches: int = 40, radius: float = 3., seed: int = 1) . | Argument | Description | . | width | Number of horizontal grid cells | . | height | Number of vertical grid cells | . | branches | Number of “corridors” to generate (may overlap) | . | radius | Number of cells in both directions horizontally and vertically to free for each generated corridor | . | seed | Seed to use for the random number generator | . Example . parameters = [3, 4, 5, 6, 7, 8] plt.figure(figsize=(len(parameters) * 5, 5)) for i, parameter in enumerate(parameters): plt.subplot(1, len(parameters), i+1) m = MPB() m.set_corridor_grid_env(100, 100, branches=100, radius=parameter) m.set_planners(['informed_rrt_star']) m[\"max_planning_time\"] = 1 m.run(id=\"corridor\", show_progress_bar=False, runs=1) run = json.load(open(m.results_filename, \"r\"))[\"runs\"][0] plot_env(run[\"environment\"], draw_start_goal_thetas=False, draw_start_goal=False, set_title=False) plt.title(\"$r = %g$\" % parameter, fontsize=24) . View Jupyter Notebook . ",
     "url": "/bench-mr/docs/components/environments/grid/#procedurally-generated-corridors",
     "relUrl": "/docs/components/environments/grid/#procedurally-generated-corridors"
-  },"8": {
+  },"9": {
     "doc": "Grid-based Environments",
     "title": "Random Grids",
     "content": "Given a ratio of occupied vs. unoccupied grid cells, grid environments can be randomly generated. The cells at the grid boundary are always occupied. MPB.set_random_grid_env(width: int = 50, height: int = 50, obstacle_ratio: float = 0.1, seed: int = 1): . | Argument | Description | . | width | Number of horizontal grid cells | . | height | Number of vertical grid cells | . | obstacle_ratio | Fraction of cells to be occupied relative to the total number of cells in the grid | . | seed | Seed to use for the random number generator | . Example . parameters = [0.01, 0.015, 0.02, 0.025, 0.03] plt.figure(figsize=(len(parameters) * 5, 5)) for i, parameter in enumerate(parameters): plt.subplot(1, len(parameters), i+1) m = MPB() m.set_random_grid_env(100, 100, obstacle_ratio=parameter) m.set_planners(['informed_rrt_star']) m[\"max_planning_time\"] = 1 m.run(id=\"corridor\", show_progress_bar=False, runs=1) run = json.load(open(m.results_filename, \"r\"))[\"runs\"][0] plot_env(run[\"environment\"], draw_start_goal_thetas=False, draw_start_goal=False, set_title=False) plt.title(\"$\\gamma = %g \\%%$\" % (parameter * 100), fontsize=24) plt.savefig(\"obstacle_ratios.pdf\", bbox_inches='tight') # plt.savefig(\"obstacle_ratios.png\", bbox_inches='tight') . View Jupyter Notebook . ",
     "url": "/bench-mr/docs/components/environments/grid/#random-grids",
     "relUrl": "/docs/components/environments/grid/#random-grids"
-  },"9": {
+  },"10": {
     "doc": "Polygon-based Environments",
     "title": "Polygon-based Environments",
     "content": "Mazes of this type consist of convex shapes that are stored as paths in a SVG file. We used Inkscape to provide the following example mazes: . View Jupyter Notebook . ",
     "url": "/bench-mr/docs/components/environments/polygon/",
     "relUrl": "/docs/components/environments/polygon/"
-  },"10": {
+  },"11": {
     "doc": "Polygon-based Environments",
     "title": "Random Polygon Maze Generation",
     "content": "Random shapes can be generated via the provided Python script. The PolygonMazeGenerator can generate random convex obstacles, and save them to a SVG file which MPB can load as environment. from polygon_maze_generator import PolygonMazeGenerator as PMG . Create Random Convex Obstacle . A single random shape (list of 2D vertices) is generated as a convex hull from a set of random points which are drawn from a 2D Gaussian distribution with the given horizontal and vertical standard deviation. To ensure a minimum extent in both directions, the points are further moved away from the origin by the provided min_width and min_height parameters. PMG.create_convex(min_width=0.5, min_height=0.5, num_points=10, std_width=2., std_height=2.) . | Argument | Description | . | min_width | Minimum extent into positive and negative x direction | . | min_height | Minimum extent into positive and negative y direction | . | num_points | Number of random points to sample | . | std_width | Standard deviation of the horizontal dimension of the Gaussian from which the points are drawn | . | std_height | Standard deviation of the vertical dimension of the Gaussian from which the points are drawn | . Save Obstacles as SVG . PMG.save_svg(obstacles, svg_filename) . | Argument | Description | . | obstacles | List of obstacles (list of 2D vertices) | . | svg_filename | File name of the SVG file to save | . Example . from polygon_maze_generator import PolygonMazeGenerator as PMG obstacles = [] spacing = 15 for x in range(0, 100, spacing): for y in range(0, 100, spacing): offset = np.random.randn(2) * 5 obstacles.append(PMG.create_convex() + np.array([x, y]) + offset) PMG.save_svg(obstacles, \"test.svg\") PMG.plot(obstacles) . Use MPB.set_polygon_env(svg_filename) to set the SVG file as environment for the given MPB instance. m = MPB() m[\"max_planning_time\"] = 30 m.set_start(10., 10., 45 * np.pi / 180) m.set_goal(90., 82., 45 * np.pi / 180) m.set_polygon_env(os.path.abspath(\"test.svg\")) m.set_planners(['prm']) if m.run(id=\"test\", runs=1) == 0: m.visualize_trajectories(draw_start_goal_thetas=True, plot_every_nth_polygon=10, silence=True) . View Jupyter Notebook . ",
     "url": "/bench-mr/docs/components/environments/polygon/#random-polygon-maze-generation",
     "relUrl": "/docs/components/environments/polygon/#random-polygon-maze-generation"
-  },"11": {
+  },"12": {
     "doc": "Polygon-based Environments",
     "title": "Load Maze from SVG File",
     "content": "The following example demonstrates how to run several planners on the warehouse polygon-based environment, which constitutes one of the images in Figure 1 of our paper. In this example, the collision shape of the robot is also changed to warehouse_robot.svg. Example . m = MPB() scenario = \"warehouse\" m[\"max_planning_time\"] = 30 m[\"env.start\"] = {\"theta\": -1.58, \"x\": 7.5, \"y\": -10} m[\"env.goal\"] = {\"theta\": 1.58, \"x\": 76.5, \"y\": -10} m[\"env.type\"] = \"polygon\" m.set_polygon_env(\"polygon_mazes/%s.svg\" % scenario) m[\"env.collision.robot_shape_source\"] = \"polygon_mazes/warehouse_robot.svg\" m.set_planners([]) m.set_planners(['bfmt', 'cforest', 'prm', 'prm_star', 'informed_rrt_star', 'sbpl_mha']) m[\"steer.car_turning_radius\"] = 2 m[\"sbpl.scaling\"] = 1 m.run(id=\"test_%s\" % scenario, runs=1) . Visualize the trajectories: . m.visualize_trajectories(ignore_planners='cforest, bfmt', draw_start_goal_thetas=True, plot_every_nth_polygon=8, fig_width=8, fig_height=8, silence=True, save_file=\"plots/%s.pdf\" % scenario, num_colors=10) . View Jupyter Notebook . ",
     "url": "/bench-mr/docs/components/environments/polygon/#load-maze-from-svg-file",
     "relUrl": "/docs/components/environments/polygon/#load-maze-from-svg-file"
-  },"12": {
+  },"13": {
     "doc": "Extend Functions",
     "title": "Extend Functions",
-    "content": "Given a solution from a motion planner, post smoothing, or path improvement algorithms attempt to find a better (e.g., shorter, smoother) path. ",
+    "content": "Bench-MR has support for various steer functions used by sampling-based planners, and kinodynamic robot models for forward-propagating planners. ",
     "url": "/bench-mr/docs/components/extendfun/",
     "relUrl": "/docs/components/extendfun/"
-  },"13": {
+  },"14": {
+    "doc": "Extend Functions",
+    "title": "Steer Functions",
+    "content": "The steer functions can be provided by a list of function names (see below). MPB.set_steer_functions(steerings: [str]) . This function will set the configuration benchmark.steer_functions to the provided list of steer functions, and set the parameter benchmark.control_planners_on to False. The following steer functions are provided with Bench-MR at the moment: . | Steer function name | Description | . | reeds_shepp | Reeds-Shepp (from OMPL) | . | dubins | Dubins (from OMPL) | . | posq | POSQ (from palmieri/posq) | . | linear | Linear (straight-line) steering | . | cc_dubins | Continuous-curvature Dubins (from hbanzhaf/steering_functions) | . | hc_reeds_shepp | Hybrid-curvature Reeds-Shepp (from hbanzhaf/steering_functions) | . | cc_reeds_shepp | Continuous-curvature Reeds-Shepp (from hbanzhaf/steering_functions) | . ",
+    "url": "/bench-mr/docs/components/extendfun/#steer-functions",
+    "relUrl": "/docs/components/extendfun/#steer-functions"
+  },"15": {
+    "doc": "Extend Functions",
+    "title": "Robot Models",
+    "content": "The robot models can be provided by a list of names (see below). MPB.set_robot_models_functions(robot_models: [str]) . This function will set the configuration benchmark.forward_propagations to the provided list of robot models, and set the parameter benchmark.control_planners_on to True. The following robot models are provided with Bench-MR at the moment: . | Robot model name | Description | . | kinematic_car | Kinematic Car | . | kinematic_single_track | Kinematic Single Track | . Depending on the benchmark.control_planners_on setting, each MPB instance runs all the specified steer functions or robot model functions in sequence. ",
+    "url": "/bench-mr/docs/components/extendfun/#robot-models",
+    "relUrl": "/docs/components/extendfun/#robot-models"
+  },"16": {
+    "doc": "Extend Functions",
+    "title": "Example",
+    "content": "def create_mpb(planner : str, extend_function : str, planning_time): mpb = MPB() mpb[\"max_planning_time\"] = planning_time mpb.set_planners([planner]) if(extend_function in steer_functions): mpb.set_steer_functions([extend_function]) if(extend_function in robot_models): mpb.set_robot_models_functions([extend_function]) mpb.set_corridor_grid_env(radius=5, branches = 15) mpb[\"ompl.seed\"] = 0 mpb.set_id('comparison_extend_function_%s_%s' % (planner, extend_function)) return mpb . Comparing RRT with different extend function . In the following we compare the classical RRT algorithm, with 2 different extend function, namely the Reeds-Shepp steer function and the kinematic car model (used in forward propagation). pool = MultipleMPB() pool.benchmarks.append(create_mpb('rrt', 'reeds_shepp', 15)) pool.benchmarks.append(create_mpb('fprrt', 'kinematic_car', 15)) pool.run_parallel(runs=5, id='comparison_extend_functions', show_plot=True) pool.merge('comparison_extend_functions.json') . visualize('comparison_extend_functions.json', num_colors=10) . plot_planner_stats('comparison_extend_functions.json', num_colors=10) . We add now in the comparison also SST, an asymptotically near-optimal incremental version of RRT. pool = MultipleMPB() pool.benchmarks.append(create_mpb('rrt', 'reeds_shepp', 30)) pool.benchmarks.append(create_mpb('fprrt', 'kinematic_car', 30)) pool.benchmarks.append(create_mpb('fpsst', 'kinematic_car', 30)) pool.run_parallel(runs=5, id='comparison_extend_functions_with_sst', show_plot=True) pool.merge('comparison_extend_functions_with_sst.json') . visualize('comparison_extend_functions_with_sst.json', num_colors=10) . plot_planner_stats('comparison_extend_functions_with_sst.json', num_colors=10) . View Jupyter Notebook . ",
+    "url": "/bench-mr/docs/components/extendfun/#example",
+    "relUrl": "/docs/components/extendfun/#example"
+  },"17": {
     "doc": "Metrics",
     "title": "Metrics",
     "content": "Bench-MR includes various metrics on which the planning algorithms can be evaluated. ",
     "url": "/bench-mr/docs/components/metrics/",
     "relUrl": "/docs/components/metrics/"
-  },"14": {
+  },"18": {
     "doc": "Add a Custom Metric",
     "title": "Add a Custom Metric",
     "content": "To add a new metric to Bench-MR, follow these steps: . ",
     "url": "/bench-mr/docs/components/metrics/add/",
     "relUrl": "/docs/components/metrics/add/"
-  },"15": {
+  },"19": {
     "doc": "Add a Custom Metric",
     "title": "Inherit from TMetric",
     "content": "Implement an interface to the C++ implementation of your metric that inherits from TMetric and follows the curiously recurring template pattern (CRTP): . class MyMetric : public TMetric&lt;MyMetric&gt; { public: static double evaluateMetric(const ompl::geometric::PathGeometric&amp; trajectory, double dt) { // ... } static double evaluateMetric(const ompl::control::PathControl&amp; trajectory, double dt) { // ... } }; . As shown, the two types of input paths (geometric and control-based) follow the OMPL API. ",
     "url": "/bench-mr/docs/components/metrics/add/#inherit-from-tmetric",
     "relUrl": "/docs/components/metrics/add/#inherit-from-tmetric"
-  },"16": {
+  },"20": {
     "doc": "Add a Custom Metric",
     "title": "Add Property to PathStatistics",
     "content": "Register the new metric in base/PathStatistics.hpp in the PathStatistics property group: . Property&lt;double&gt; my_metric{ std::numeric_limits&lt;double&gt;::quiet_NaN(), \"my_metric\", this}; . ",
     "url": "/bench-mr/docs/components/metrics/add/#add-property-to-pathstatistics",
     "relUrl": "/docs/components/metrics/add/#add-property-to-pathstatistics"
-  },"17": {
+  },"21": {
     "doc": "Add a Custom Metric",
     "title": "Evaluate Metric in PathEvaluation::evaluate",
     "content": "Include the evaluation of the new metric in PathEvaluation::evaluate (in utils/PathEvaluation.hpp): . stats.my_metric = MyMetric::evaluate(solution); . ",
     "url": "/bench-mr/docs/components/metrics/add/#evaluate-metric-in-pathevaluationevaluate",
     "relUrl": "/docs/components/metrics/add/#evaluate-metric-in-pathevaluationevaluate"
-  },"18": {
+  },"22": {
     "doc": "Add a Custom Metric",
     "title": "Update Front-end Definitions",
     "content": "Go to python/definitions.py to optionally register a user-friendly title in the stat_names dictionary that is displayed in the plots inplace of the metric name. stat_names = { # ... 'my_metric': 'My Metric' } . ",
     "url": "/bench-mr/docs/components/metrics/add/#update-front-end-definitions",
     "relUrl": "/docs/components/metrics/add/#update-front-end-definitions"
-  },"19": {
+  },"23": {
+    "doc": "Optimization Objectives",
+    "title": "Optimization Objectives",
+    "content": "The OMPL-based planners can be configured to optimize for certain path quality criteria. The optimization objective is defined by the ompl.optimization_objective setting: . | Value | Description | . | min_pathlength | Minimize path length | . | min_smoothness | Minimize smoothness as defined by OMPL: \\(\\mbox{smoothness} = \\sum\\limits_{i=2}^{n-1}\\left(\\frac{2\\left(\\pi - \\arccos\\left(\\frac{a_i^2+b_i^2-c_i^2}{2 a_i b_i}\\right)\\right)}{a_i + b_i}\\right)^2\\) | . | min_curvature | Minimize normalized curvature along the path (normalized by the path length) \\(\\kappa_\\mathrm{norm}=\\sum_i\\int_{\\sigma_i}\\kappa(\\dot{\\sigma}_i(t))\\parallel\\dot{p}_{\\sigma_i}(t)\\parallel_2\\,dt\\), where \\(\\sigma_i\\) are the continuous curvature segments (between the cusps) of the full trajectory \\(\\sigma\\) and \\(\\kappa(\\dot{\\sigma}(t))\\) computes the curvature at a point \\(\\sigma(t)\\) of the trajectory and \\(p_\\sigma\\) denotes the \\(x\\) and \\(y\\) components of \\(\\sigma\\) | . | max_minclearance | Maximize minimum clearance (distance to nearest obstacle along the entire path) | . Example . def create_mpb(optimization_objective): mpb = MPB() mpb[\"max_planning_time\"] = 2 mpb.set_planners(['prm']) mpb[\"ompl.sampler\"] = \"halton\" mpb.set_steer_functions(['reeds_shepp']) mpb['ompl.cost_threshold'] = 0 mpb.set_corridor_grid_env(radius=5, branches = 15) mpb[\"ompl.seed\"] = 0 mpb.set_id(optimization_objective) mpb[\"ompl.optimization_objective\"] = optimization_objective return mpb pool = MultipleMPB() pool.benchmarks.append(create_mpb(\"min_pathlength\")) pool.benchmarks.append(create_mpb(\"min_smoothness\")) pool.benchmarks.append(create_mpb(\"min_curvature\")) pool.benchmarks.append(create_mpb(\"max_minclearance\")) pool.run_parallel(runs=25, id='optimization_objectives', show_plot=False) pool.merge('optimization_objectives/optimization_objectives.json', plan_names=['PRM (min_pathlength)', 'PRM (min_smoothness)', 'PRM (min_curvature)', 'PRM (max_minclearance)']) . from trajectory import visualize visualize('optimization_objectives/optimization_objectives.json', num_colors=10) . from plot_stats import plot_planner_stats plot_planner_stats('optimization_objectives/optimization_objectives.json', num_colors=10) . View Jupyter Notebook . ",
+    "url": "/bench-mr/docs/components/objectives/",
+    "relUrl": "/docs/components/objectives/"
+  },"24": {
     "doc": "Planners",
     "title": "Planners",
     "content": "Bench-MR supports several motion-planning algorithms, supporting implementations from OMPL and SBPL out of the box. ",
     "url": "/bench-mr/docs/components/planners/",
     "relUrl": "/docs/components/planners/"
-  },"20": {
+  },"25": {
     "doc": "Add a Custom Planner",
     "title": "Add a Custom Planner",
     "content": "The following steps are necessary to add a new planner to Bench-MR. ",
     "url": "/bench-mr/docs/components/planners/add/",
     "relUrl": "/docs/components/planners/add/"
-  },"21": {
+  },"26": {
     "doc": "Add a Custom Planner",
     "title": "Inherit from AbstractPlanner",
     "content": "Your planner needs to be implemented in C++ and provide an interface that inherits from AbstractPlanner. The corresponding abstract functions need to implemented: . std::string name() const {} ompl::base::PlannerStatus run() ompl::geometric::PathGeometric solution() const bool hasReachedGoalExactly() const double planningTime() const . As shown, the path solution needs to be returned as a ompl::geometric::PathGeometric from OMPL. ",
     "url": "/bench-mr/docs/components/planners/add/#inherit-from-abstractplanner",
     "relUrl": "/docs/components/planners/add/#inherit-from-abstractplanner"
-  },"22": {
+  },"27": {
     "doc": "Add a Custom Planner",
     "title": "Register Planner in PlanningSettings",
     "content": "Register your planner as a new entry in the PlanningSettings in base/PlannerSettings.h to allow the benchmark configuration to enable the use of this planner. Each entry follows the same format: . Property&lt;bool&gt; planner{true, \"planner\", this}; . where planner is the name of your planner. ",
     "url": "/bench-mr/docs/components/planners/add/#register-planner-in-planningsettings",
     "relUrl": "/docs/components/planners/add/#register-planner-in-planningsettings"
-  },"23": {
+  },"28": {
     "doc": "Add a Custom Planner",
     "title": "Add Planner to Benchmark Function",
     "content": "To execute the planner when its corresponding flag in PlanningSettings is active, we need to add the following term to the evaluatePlanners function in experiments/benchmark.cpp: . if (global::settings.benchmark.planning.planner) PathEvaluation::evaluateSmoothers&lt;Planner&gt;(info); . where Planner is the type of your planner (the one inherited from AbstractPlanner). ",
     "url": "/bench-mr/docs/components/planners/add/#add-planner-to-benchmark-function",
     "relUrl": "/docs/components/planners/add/#add-planner-to-benchmark-function"
-  },"24": {
+  },"29": {
     "doc": "Add a Custom Planner",
     "title": "Update Front-end Definitions",
     "content": "Go to python/definitions.py to optionally register a user-friendly title in the planner_names dictionary that is displayed in the plots inplace of the planner name. planner_names = { # ... 'planner': 'Desired title used in plots' } . After compiling the benchmark executable, the new planner is now available from MPB, e.g. via the MPB.set_planners([\"planner\"]) helper function. ",
     "url": "/bench-mr/docs/components/planners/add/#update-front-end-definitions",
     "relUrl": "/docs/components/planners/add/#update-front-end-definitions"
-  },"25": {
-    "doc": "OMPL",
-    "title": "OMPL",
-    "content": " ",
-    "url": "/bench-mr/docs/components/planners/ompl/",
-    "relUrl": "/docs/components/planners/ompl/"
-  },"26": {
-    "doc": "SBPL",
-    "title": "SBPL",
-    "content": " ",
-    "url": "/bench-mr/docs/components/planners/sbpl/",
-    "relUrl": "/docs/components/planners/sbpl/"
-  },"27": {
+  },"30": {
     "doc": "Post Smoothers",
     "title": "Post Smoothers",
     "content": "Given a solution from a motion planner, post smoothing, or path improvement algorithms attempt to find a better (e.g., shorter, smoother) path. ",
     "url": "/bench-mr/docs/components/postsmoothing/",
     "relUrl": "/docs/components/postsmoothing/"
-  },"28": {
+  },"31": {
+    "doc": "Sampling",
+    "title": "Sampling",
+    "content": "The planners can be configured to use random (default) or deterministic (Halton) sampling. The sampling is defined by the ompl.sampler setting: . | Value | Description | . | iid | Random (i.i.d.) sampling | . | halton | Halton sampling (deterministic) | . Example . mpb = MPB() mpb.set_planners(['prm']) mpb.set_steer_functions(['reeds_shepp']) mpb.set_corridor_grid_env(radius=3) mpb[\"ompl.seed\"] = 0 # Random sampling mpb_iid = deepcopy(mpb) mpb_iid.set_id('iid') mpb_iid[\"ompl.sampler\"] = \"iid\" # Deterministic sampling mpb_halton = deepcopy(mpb) mpb_halton.set_id('halton') mpb_halton[\"ompl.sampler\"] = \"halton\" pool = MultipleMPB() pool.benchmarks.append(mpb_iid) pool.benchmarks.append(mpb_halton) pool.run_parallel(runs=10, id='samplers', show_plot=False) pool.merge('samplers/samplers.json', plan_names=['PRM (iid)', 'PRM (Halton)']) . from trajectory import visualize visualize('samplers/samplers.json') . from plot_stats import plot_planner_stats plot_planner_stats('samplers/samplers.json') . View Jupyter Notebook . ",
+    "url": "/bench-mr/docs/components/sampling/",
+    "relUrl": "/docs/components/sampling/"
+  },"32": {
     "doc": "Contributions",
     "title": "Contributions",
     "content": " ",
     "url": "/bench-mr/docs/contribute/",
     "relUrl": "/docs/contribute/"
-  },"29": {
+  },"33": {
     "doc": "Contributions",
     "title": "Third-party libraries",
     "content": "This project uses forks from some of the following repositories which are integrated into this project as submodules: . | The Open Motion Planning Library (OMPL) | Search-Based Planning Library (SBPL) | hbanzhaf/steering_functions | . Besides the above contributions, the authors thank Nathan Sturtevant’s Moving AI Lab for providing the 2D Pathfinding \"MovingAI\" Datasets. ",
     "url": "/bench-mr/docs/contribute/#third-party-libraries",
     "relUrl": "/docs/contribute/#third-party-libraries"
-  },"30": {
+  },"34": {
     "doc": "Contributions",
     "title": "Developers",
     "content": ". | Eric Heiden (University of Southern California, Los Angeles, USA) | Luigi Palmieri (Robert Bosch GmbH, Corporate Research, Stuttgart, Germany) | Leonard Bruns (KTH Royal Institute of Technology, Stockholm, Sweden) | Ziang Liu (University of Southern California, Los Angeles, USA) | . ",
     "url": "/bench-mr/docs/contribute/#developers",
     "relUrl": "/docs/contribute/#developers"
-  },"31": {
+  },"35": {
     "doc": "Getting Started",
     "title": "Getting Started",
     "content": "This project contains several build targets in the experiments/ folder. The main application for benchmarking is the benchmark executable that gets built in the bin/ folder in the project directory. ",
     "url": "/bench-mr/docs/getting-started/",
     "relUrl": "/docs/getting-started/"
-  },"32": {
+  },"36": {
     "doc": "Getting Started",
     "title": "Running a benchmark",
     "content": "Python Frontend (Jupyter Notebooks) . Run jupyter lab from the project folder and navigate to the plotting/ directory where you can find several notebooks that can execute experiments and allow you to plot and analyze the benchmark results. Python Frontend Tutorial . C++ Backend . ⚠ It is recommended to run the benchmarks from the Jupyter frontend. Alternatively, you have the option to manually run benchmarks via JSON configuration files that define which planners to execute, and many other settings concerning environments, steer functions, etc. In the bin/ folder, start a benchmark via ./benchmark configuration.json . where configuration.json is any of the json files in the benchmarks/ folder. Optionally, if multiple CPUs are available, multiple benchmarks can be run in parallel using GNU Parallel, e.g., via . parallel -k ./benchmark ::: ../benchmarks/corridor_radius_* . This command will execute the experiments with varying corridor sizes in parallel. For more information, consult the GNU Parallel tutorial. This will eventually output a line similar to . Info: Saved path statistics log file &lt;...&gt; . The resulting JSON log file can be used for visualizing the planning results and plotting the statistics. To get started, check out the Jupyter notebooks inside the plotting/ folder where all the plotting tools are provided. ",
     "url": "/bench-mr/docs/getting-started/#running-a-benchmark",
     "relUrl": "/docs/getting-started/#running-a-benchmark"
-  },"33": {
+  },"37": {
     "doc": "Python Frontend",
     "title": "Python Frontend",
     "content": "This page demonstrates the Python frontend of Bench-MR. View Jupyter Notebook . ",
     "url": "/bench-mr/docs/getting-started/frontend/",
     "relUrl": "/docs/getting-started/frontend/"
-  },"34": {
+  },"38": {
     "doc": "Python Frontend",
     "title": "Construct MPB Instance",
     "content": "The MPB class exposes the settings and several helper functions of an experiment that runs on a single CPU. A single experiment can consist of multiple runs in different environments of the same type, using a set of predefined planners, steer functions, and post-smoothing methods. from mpb import MPB mpb = MPB() . The MPB instance is created via the following constructor: . mpb = MPB(config_file = os.path.join(MPB_BINARY_DIR, 'benchmark_template.json'), output_path = '') . | Argument | Description | . | config_file | Path name of the configuration JSON file this experiment is based on | . | output_path | Path where the resulting log files are stored from this experiment | . ",
     "url": "/bench-mr/docs/getting-started/frontend/#construct-mpb-instance",
     "relUrl": "/docs/getting-started/frontend/#construct-mpb-instance"
-  },"35": {
+  },"39": {
     "doc": "Python Frontend",
     "title": "Configuration",
     "content": "Any configuration values (or subtrees) can be set and retrieved using the bracket operator on the MPB instance. The key is a string and by using the dot-notation, a path can be given: . mpb[\"ompl.seed\"] = 4 # set the seed of the OMPL planners . Some helper functions are available to set environment properties, and configure the planners, steer functions and post smoothers: . mpb.set_corridor_grid_env(radius = 3) mpb.set_planners(['rrt', 'rrt_star', 'informed_rrt_star']) mpb.set_steer_functions(['reeds_shepp']) . Run the motion planning benchmark: . mpb.run(id='test_run', runs=3) # optional run ID, number of runs (environments) mpb.print_info() . +++++++++++++++++++++++++ Run #0 (1 / 3) +++++++++++++++++++++++++ + Steering: Reeds-Shepp + Environment: grid + Planners: RRT, RRTstar, InformedRRTstar + Found solution: 3 / 3 + Exact solution: 3 / 3 + Found colliding: 0 / 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ +++++++++++++++++++++++++ Run #1 (2 / 3) +++++++++++++++++++++++++ + Steering: Reeds-Shepp + Environment: grid + Planners: RRT, RRTstar, InformedRRTstar + Found solution: 3 / 3 + Exact solution: 3 / 3 + Found colliding: 0 / 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ +++++++++++++++++++++++++ Run #2 (3 / 3) +++++++++++++++++++++++++ + Steering: Reeds-Shepp + Environment: grid + Planners: RRT, RRTstar, InformedRRTstar + Found solution: 3 / 3 + Exact solution: 3 / 3 + Found colliding: 0 / 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ . ",
     "url": "/bench-mr/docs/getting-started/frontend/#configuration",
     "relUrl": "/docs/getting-started/frontend/#configuration"
-  },"36": {
+  },"40": {
     "doc": "Python Frontend",
     "title": "Visualize Trajectories",
     "content": "Visualize the planner trajectories: . mpb.visualize_trajectories() . ",
     "url": "/bench-mr/docs/getting-started/frontend/#visualize-trajectories",
     "relUrl": "/docs/getting-started/frontend/#visualize-trajectories"
-  },"37": {
+  },"41": {
     "doc": "Python Frontend",
     "title": "Plot Statistics",
     "content": "Plot planner statistics: . mpb.plot_planner_stats() . We can also use the frontend to compare the solutions of the anytime planners over the course of a given time interval. Let’s take an Informed RRT* planner and run it on the time allotments of 0.5s, 1s and 10s: . ms = [] for time in [.5, 1, 10]: m = MPB() m[\"max_planning_time\"] = time m.set_corridor_grid_env(width=150, height=150, branches=100, radius=3) m.set_planners(['informed_rrt_star']) m.set_steer_functions(['reeds_shepp']) m.run('anytime_%.1f' % time, runs=1) ms.append(m) . Visualize the results: . plt.figure(figsize=(6 * len(ms), 6)) for i, m in enumerate(ms): plt.subplot(1, len(ms), i+1) m.visualize_trajectories(headless=True, combine_views=False, use_existing_subplot=True, show_legend=False) plt.title(\"%.1f s\" % m[\"max_planning_time\"]) plt.tight_layout() plt.savefig(\"informed_rrt_star_anytime.pdf\") . ",
     "url": "/bench-mr/docs/getting-started/frontend/#plot-statistics",
     "relUrl": "/docs/getting-started/frontend/#plot-statistics"
-  },"38": {
+  },"42": {
     "doc": "Python Frontend",
     "title": "Parallel Execution",
     "content": "Multiple benchmarks can also be run in parallel using MultipleMPB: . from mpb import MultipleMPB pool = MultipleMPB() for time in [.5, 1, 10]: m = MPB() m[\"max_planning_time\"] = time m.set_corridor_grid_env(width=150, height=150, branches=100, radius=3) m.set_planners(['informed_rrt_star']) m.set_steer_functions(['reeds_shepp']) pool.benchmarks.append(m) pool.run_parallel('test_parallel', runs=5) . pool.visualize_trajectories(run_id='1') . View Jupyter Notebook . ",
     "url": "/bench-mr/docs/getting-started/frontend/#parallel-execution",
     "relUrl": "/docs/getting-started/frontend/#parallel-execution"
-  },"39": {
+  },"43": {
     "doc": "Frontend Utilities",
     "title": "Frontend Utilities",
     "content": "Helpful functions to work with Bench-MR results. ",
     "url": "/bench-mr/docs/getting-started/utils/",
     "relUrl": "/docs/getting-started/utils/"
-  },"40": {
+  },"44": {
     "doc": "Installation",
     "title": "Installation",
     "content": "Bench-MR is known to work on UNIX-based operating systems and uses CMake to find the C++ dependencies. ",
     "url": "/bench-mr/docs/installation",
     "relUrl": "/docs/installation"
-  },"41": {
+  },"45": {
     "doc": "Installation",
     "title": "Dependencies",
     "content": ". | libccd-1.4+ (because of the chomp implementation used here), included as submodule and automatically built | OMPL - included as submodule, needs to be installed first | nlohmann/json - not provided, needs to be installed first | SBPL - not provided, needs to be installed | Jupyter Lab with Python 3 kernel for plotting and evaluation (see plotting/README.md) | . The following boost libraries (version 1.58+) need to be installed: . | boost_serialization | boost_filesystem | boost_system | boost_program_options | . The provided CHOMP implementation requires, GLUT and other OpenGL libraries to be present, which can be installed through the freeglut3-dev package. PNG via libpng-dev, expat via libexpat1-dev. Optionally, to support visual debugging, Qt5 with the Charts and Svg modules needs to be installed. ",
     "url": "/bench-mr/docs/installation#dependencies",
     "relUrl": "/docs/installation#dependencies"
-  },"42": {
+  },"46": {
     "doc": "Installation",
     "title": "Frontend Dependencies",
     "content": "The following system-wide dependencies need to be set up: . | Python 3.5+ | PIP 3 (install via apt install python3-pip) | Jupyter Lab | . The Python frontend dependencies are defined in plotting/requirements.txt which can be installed through . pip install -r plotting/requirements.txt . ",
     "url": "/bench-mr/docs/installation#frontend-dependencies",
     "relUrl": "/docs/installation#frontend-dependencies"
-  },"43": {
+  },"47": {
     "doc": "Build Instructions",
     "title": "Build Instructions",
     "content": ". | Check out the submodules git submodule init &amp;&amp; git submodule update . | Create build and log folders mkdir build . | Build project cd build cmake .. cmake --build . -- -j4 . If you see an error during the cmake .. command that Qt or one of the Qt modules could not be found, you can ignore this message as this dependency is optional. | . ",
     "url": "/bench-mr/docs/installation/build/",
     "relUrl": "/docs/installation/build/"
-  },"44": {
+  },"48": {
     "doc": "Using Docker",
     "title": "Using Docker",
     "content": ". | Build the Docker image docker build -t mpb . | Run the image to be able to access the Jupyter Lab instance on port 8888 in your browser from where you can run and evaluate benchmarks: docker run -p 8888:8888 -it mpb . Optionally, you can mount your local mpb copy to its respective folder inside the docker via . docker run -p 8888:8888 -v $(pwd):/root/code/mpb -it mpb # use %cd% in place of $(pwd) on Windows . Now you can edit files from outside the docker and use this container to build and run the experiments. You can connect multiple times to this same running docker, for example if you want to access it from multiple shell instances via . docker exec -it $(docker ps -qf \"ancestor=mpb\") bash . Alternatively, run the provided script ./docker_connect.sh that executes this command. | . ",
     "url": "/bench-mr/docs/installation/docker/",
     "relUrl": "/docs/installation/docker/"
-  },"45": {
+  },"49": {
     "doc": "Results",
     "title": "Results",
     "content": "The following results are dynamically updated as soon as the code base is updated on GitHub. ",
     "url": "/bench-mr/docs/results/",
     "relUrl": "/docs/results/"
-  },"46": {
+  },"50": {
     "doc": "Moving AI Planners",
     "title": "Moving AI",
     "content": "Path planning results from the 2D Pathfinding “MovingAI” Datasets . | | Scenario Steer Function cc_reeds_shepp dubins posq reeds_shepp Get Result Get Started Please choose from the panel and click on \"Get Result\". ",
     "url": "/bench-mr/docs/results/movingai-planners/#moving-ai",
     "relUrl": "/docs/results/movingai-planners/#moving-ai"
-  },"47": {
+  },"51": {
     "doc": "Moving AI Planners",
     "title": "Moving AI Planners",
     "content": " ",
     "url": "/bench-mr/docs/results/movingai-planners/",
     "relUrl": "/docs/results/movingai-planners/"
-  },"48": {
+  },"52": {
     "doc": "Moving AI Smoothers",
     "title": "Moving AI",
     "content": "Post smoothing results from the 2D Pathfinding “MovingAI” Datasets . | | Scenario Steer Function cc_reeds_shepp dubins posq reeds_shepp Display Merged Separated by planners Get Result Get Started Please choose from the panel and click on \"Get Result\". ",
     "url": "/bench-mr/docs/results/movingai-smoothers/#moving-ai",
     "relUrl": "/docs/results/movingai-smoothers/#moving-ai"
-  },"49": {
+  },"53": {
     "doc": "Moving AI Smoothers",
     "title": "Moving AI Smoothers",
     "content": " ",
