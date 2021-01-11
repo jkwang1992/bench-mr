@@ -1,0 +1,11 @@
+<map id="PlannerSettings::GlobalSettings::EnvironmentSettings" name="PlannerSettings::GlobalSettings::EnvironmentSettings">
+<area shape="rect" id="node1" title=" " alt="" coords="1085,188,1312,230"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,245,67,272"/>
+<area shape="rect" id="node3" href="$structPlannerSettings_1_1StateSettings.html" title=" " alt="" coords="427,118,645,145"/>
+<area shape="rect" id="node4" href="$structPlannerSettings_1_1GlobalSettings_1_1EnvironmentSettings_1_1CollisionSettings.html" title=" " alt="" coords="395,166,677,207"/>
+<area shape="rect" id="node5" href="$structPlannerSettings_1_1GlobalSettings_1_1EnvironmentSettings_1_1PolygonSettings.html" title=" " alt="" coords="701,258,980,299"/>
+<area shape="rect" id="node6" href="$structPlannerSettings_1_1GlobalSettings_1_1EnvironmentSettings_1_1GridSettings.html" title=" " alt="" coords="713,328,968,370"/>
+<area shape="rect" id="node7" href="$structPlannerSettings_1_1GlobalSettings_1_1EnvironmentSettings_1_1GridSettings_1_1RandomSettings.html" title=" " alt="" coords="116,321,371,377"/>
+<area shape="rect" id="node8" href="$structPlannerSettings_1_1GlobalSettings_1_1EnvironmentSettings_1_1GridSettings_1_1CorridorSettings.html" title=" " alt="" coords="116,401,371,457"/>
+<area shape="rect" id="node9" href="$structPlannerSettings_1_1GlobalSettings_1_1EnvironmentSettings_1_1GridSettings_1_1ImageSettings.html" title=" " alt="" coords="116,481,371,537"/>
+</map>
