@@ -8,3 +8,6 @@ nav_order: 4
 
 # C++ Backend
 
+The C++ documentation is automatically generated from the C++ backend source files via Doxygen, and provided via the following link:
+
+[View Doxygen Documentation]({{ site.baseurl }}/assets/doxygen/html){: .btn .btn-primary }
