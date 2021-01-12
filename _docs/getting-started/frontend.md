@@ -57,6 +57,11 @@ Run the motion planning benchmark:
 
 ```python
 mpb.run(id='test_run', runs=3)  # optional run ID, number of runs (environments)
+```
+
+The following command summarizes some basic planning results from these 3 runs that were just executed:
+
+```python
 mpb.print_info()
 ```
 
