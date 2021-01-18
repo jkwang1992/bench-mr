@@ -20,7 +20,7 @@ Run `jupyter lab` from the project folder and navigate to the `plotting/` direct
 
 ![gif]({{ site.baseurl }}/assets/mpb_parallel.gif)
 
-[Python Frontend Tutorial](frontend){: .btn .btn-blue }
+[Python Frontend Tutorial](tutorial){: .btn .btn-blue }
 
 ### C++ Backend
 
