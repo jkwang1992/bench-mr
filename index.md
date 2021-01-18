@@ -19,3 +19,5 @@ This website provides the documentation to Bench-MR, and hosts several up-to-dat
 {: .fw-300 }
 
 [GitHub Repository](https://github.com/robot-motion/bench-mr){: .btn .btn-blue }
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ps9wwXuHj44" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

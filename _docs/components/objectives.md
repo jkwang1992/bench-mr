@@ -61,16 +61,14 @@ from trajectory import visualize
 visualize('optimization_objectives/optimization_objectives.json', num_colors=10)
 ```
     
-![png]({{ site.baseurl }}/assets/frontend/objectives/output_3_1.png)
-    
-
+<img src="{{ site.baseurl }}/assets/frontend/objectives/output_3_1.png" style="width:100% !important;max-height:none"/>
 
 
 ```python
 from plot_stats import plot_planner_stats
 plot_planner_stats('optimization_objectives/optimization_objectives.json', num_colors=10)
 ```
-    
-![png]({{ site.baseurl }}/assets/frontend/objectives/output_4_1.png)
+
+<img src="{{ site.baseurl }}/assets/frontend/objectives/output_4_1.png" style="width:100% !important;max-height:none"/>
 
 [View Jupyter Notebook](https://github.com/eric-heiden/mpb/blob/master/plotting/Optimization%20Objective.ipynb){: .btn .btn-green }

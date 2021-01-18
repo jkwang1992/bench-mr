@@ -1,12 +1,12 @@
 ---
 layout: default
-title:  "Python Frontend"
+title:  "Tutorial"
 date:   2021-01-04 13:20:59 +0100
 parent: "Getting Started"
 nav_order: 1
 ---
 
-# Python Frontend
+# Tutorial
 
 This page demonstrates the Python frontend of Bench-MR.
 
