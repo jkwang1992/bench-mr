@@ -293,66 +293,60 @@
     "url": "/bench-mr/docs/getting-started/tutorial/#parallel-execution",
     "relUrl": "/docs/getting-started/tutorial/#parallel-execution"
   },"49": {
-    "doc": "Frontend Utilities",
-    "title": "Frontend Utilities",
-    "content": "Helpful functions to work with Bench-MR results. ",
-    "url": "/bench-mr/docs/getting-started/utils/",
-    "relUrl": "/docs/getting-started/utils/"
-  },"50": {
     "doc": "Installation",
     "title": "Installation",
     "content": "Bench-MR is known to work on UNIX-based operating systems and uses CMake to find the C++ dependencies. ",
     "url": "/bench-mr/docs/installation",
     "relUrl": "/docs/installation"
-  },"51": {
+  },"50": {
     "doc": "Installation",
     "title": "Dependencies",
     "content": ". | libccd-1.4+ (because of the chomp implementation used here), included as submodule and automatically built | OMPL - included as submodule, needs to be installed first | nlohmann/json - not provided, needs to be installed first | SBPL - not provided, needs to be installed | Jupyter Lab with Python 3 kernel for plotting and evaluation (see plotting/README.md) | . The following boost libraries (version 1.58+) need to be installed: . | boost_serialization | boost_filesystem | boost_system | boost_program_options | . The provided CHOMP implementation requires, GLUT and other OpenGL libraries to be present, which can be installed through the freeglut3-dev package. PNG via libpng-dev, expat via libexpat1-dev. Optionally, to support visual debugging, Qt5 with the Charts and Svg modules needs to be installed. ",
     "url": "/bench-mr/docs/installation#dependencies",
     "relUrl": "/docs/installation#dependencies"
-  },"52": {
+  },"51": {
     "doc": "Installation",
     "title": "Frontend Dependencies",
     "content": "The following system-wide dependencies need to be set up: . | Python 3.5+ | PIP 3 (install via apt install python3-pip) | Jupyter Lab | . The Python frontend dependencies are defined in plotting/requirements.txt which can be installed through . pip install -r plotting/requirements.txt . ",
     "url": "/bench-mr/docs/installation#frontend-dependencies",
     "relUrl": "/docs/installation#frontend-dependencies"
-  },"53": {
+  },"52": {
     "doc": "Build Instructions",
     "title": "Build Instructions",
     "content": ". | Check out the submodules git submodule init &amp;&amp; git submodule update . | Create build and log folders mkdir build . | Build project cd build cmake .. cmake --build . -- -j4 . If you see an error during the cmake .. command that Qt or one of the Qt modules could not be found, you can ignore this message as this dependency is optional. | . ",
     "url": "/bench-mr/docs/installation/build/",
     "relUrl": "/docs/installation/build/"
-  },"54": {
+  },"53": {
     "doc": "Using Docker",
     "title": "Using Docker",
     "content": ". | Build the Docker image docker build -t mpb . | Run the image to be able to access the Jupyter Lab instance on port 8888 in your browser from where you can run and evaluate benchmarks: docker run -p 8888:8888 -it mpb . Optionally, you can mount your local mpb copy to its respective folder inside the docker via . docker run -p 8888:8888 -v $(pwd):/root/code/mpb -it mpb # use %cd% in place of $(pwd) on Windows . Now you can edit files from outside the docker and use this container to build and run the experiments. You can connect multiple times to this same running docker, for example if you want to access it from multiple shell instances via . docker exec -it $(docker ps -qf \"ancestor=mpb\") bash . Alternatively, run the provided script ./docker_connect.sh that executes this command. | . ",
     "url": "/bench-mr/docs/installation/docker/",
     "relUrl": "/docs/installation/docker/"
-  },"55": {
+  },"54": {
     "doc": "Results",
     "title": "Results",
     "content": "The following results are dynamically updated as soon as the code base is updated on GitHub. ",
     "url": "/bench-mr/docs/results/",
     "relUrl": "/docs/results/"
-  },"56": {
+  },"55": {
     "doc": "Moving AI Planners",
     "title": "Moving AI",
     "content": "Path planning results from the 2D Pathfinding “MovingAI” Datasets . | | Scenario Steer Function cc_reeds_shepp dubins posq reeds_shepp Get Result Get Started Please choose from the panel and click on \"Get Result\". ",
     "url": "/bench-mr/docs/results/movingai-planners/#moving-ai",
     "relUrl": "/docs/results/movingai-planners/#moving-ai"
-  },"57": {
+  },"56": {
     "doc": "Moving AI Planners",
     "title": "Moving AI Planners",
     "content": " ",
     "url": "/bench-mr/docs/results/movingai-planners/",
     "relUrl": "/docs/results/movingai-planners/"
-  },"58": {
+  },"57": {
     "doc": "Moving AI Smoothers",
     "title": "Moving AI",
     "content": "Post smoothing results from the 2D Pathfinding “MovingAI” Datasets . | | Scenario Steer Function cc_reeds_shepp dubins posq reeds_shepp Display Merged Separated by planners Get Result Get Started Please choose from the panel and click on \"Get Result\". ",
     "url": "/bench-mr/docs/results/movingai-smoothers/#moving-ai",
     "relUrl": "/docs/results/movingai-smoothers/#moving-ai"
-  },"59": {
+  },"58": {
     "doc": "Moving AI Smoothers",
     "title": "Moving AI Smoothers",
     "content": " ",
