@@ -10,9 +10,10 @@ var searchData=
   ['alpha_14',['alpha',['../structPlannerSettings_1_1GlobalSettings_1_1SteerSettings_1_1PosqSettings.html#aad6c632bee74cb5af6cc53c12b9afe82',1,'PlannerSettings::GlobalSettings::SteerSettings::PosqSettings::alpha()'],['../structPlannerSettings_1_1GlobalSettings_1_1SmoothingSettings_1_1ChompSettings.html#a10e2cc83accb330fe5f7872435724168',1,'PlannerSettings::GlobalSettings::SmoothingSettings::ChompSettings::alpha()']]],
   ['anytime_2ecpp_15',['anytime.cpp',['../anytime_8cpp.html',1,'']]],
   ['anytime_5fintervals_16',['anytime_intervals',['../structPlannerSettings_1_1GlobalSettings_1_1BenchmarkSettings.html#a2f36c2608418d0bc5ac1f3dda6d5155c',1,'PlannerSettings::GlobalSettings::BenchmarkSettings']]],
-  ['approxsolnplannerterminationcondition_17',['approxSolnPlannerTerminationCondition',['../classOMPLControlPlanner.html#ae2b678fa3cc4bc35ebf3c533b2494733',1,'OMPLControlPlanner']]],
-  ['astar_18',['AStar',['../classAStar.html',1,'AStar'],['../classAStar.html#ab7cfaf9e1662f45f5fdce245d28c4508',1,'AStar::AStar()']]],
-  ['astar_2ehpp_19',['AStar.hpp',['../AStar_8hpp.html',1,'']]],
-  ['auto_5fchoose_5fdistance_5fcomputation_5fmethod_20',['auto_choose_distance_computation_method',['../structPlannerSettings_1_1GlobalSettings.html#af112fe5f71c8c5299a517d34f84a66b7',1,'PlannerSettings::GlobalSettings']]],
-  ['axis_5flength_21',['axis_length',['../structPlannerSettings_1_1GlobalSettings_1_1SteerSettings_1_1PosqSettings.html#a8063a93341c5faa333ea8875f4cea5b8',1,'PlannerSettings::GlobalSettings::SteerSettings::PosqSettings']]]
+  ['aol_17',['aol',['../structPathStatistics.html#a3307eb61bd39cbb1f3138d83a6f58b0a',1,'PathStatistics']]],
+  ['approxsolnplannerterminationcondition_18',['approxSolnPlannerTerminationCondition',['../classOMPLControlPlanner.html#ae2b678fa3cc4bc35ebf3c533b2494733',1,'OMPLControlPlanner']]],
+  ['astar_19',['AStar',['../classAStar.html#ab7cfaf9e1662f45f5fdce245d28c4508',1,'AStar::AStar()'],['../classAStar.html',1,'AStar']]],
+  ['astar_2ehpp_20',['AStar.hpp',['../AStar_8hpp.html',1,'']]],
+  ['auto_5fchoose_5fdistance_5fcomputation_5fmethod_21',['auto_choose_distance_computation_method',['../structPlannerSettings_1_1GlobalSettings.html#af112fe5f71c8c5299a517d34f84a66b7',1,'PlannerSettings::GlobalSettings']]],
+  ['axis_5flength_22',['axis_length',['../structPlannerSettings_1_1GlobalSettings_1_1SteerSettings_1_1PosqSettings.html#a8063a93341c5faa333ea8875f4cea5b8',1,'PlannerSettings::GlobalSettings::SteerSettings::PosqSettings']]]
 ];
