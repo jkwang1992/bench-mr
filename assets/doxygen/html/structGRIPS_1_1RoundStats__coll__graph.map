@@ -1,6 +1,6 @@
 <map id="GRIPS::RoundStats" name="GRIPS::RoundStats">
-<area shape="rect" id="node1" title=" " alt="" coords="5,171,148,197"/>
-<area shape="rect" id="node2" title=" " alt="" coords="25,81,86,108"/>
-<area shape="rect" id="node3" href="$classTimedResult.html" title=" " alt="" coords="111,81,213,108"/>
-<area shape="rect" id="node4" href="$classStopwatch.html" title=" " alt="" coords="117,5,207,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,171,143,197"/>
+<area shape="rect" id="node2" title=" " alt="" coords="9,81,67,108"/>
+<area shape="rect" id="node3" href="$classTimedResult.html" title=" " alt="" coords="91,81,185,108"/>
+<area shape="rect" id="node4" href="$classStopwatch.html" title="Stopwatch implementation to measure elapsed time." alt="" coords="96,5,180,32"/>
 </map>

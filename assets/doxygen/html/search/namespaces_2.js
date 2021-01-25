@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['plannersettings_776',['PlannerSettings',['../namespacePlannerSettings.html',1,'']]]
+  ['plannersettings_796',['PlannerSettings',['../namespacePlannerSettings.html',1,'']]]
 ];
