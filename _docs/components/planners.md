@@ -54,4 +54,4 @@ The *planner names* are parsed from the list of strings, showing an error if any
 | `fprrt`	|	FP RRT |
 | `fppdst`	|	FP PDST |
 
-[View Tutorial]({{ site.baseurl }}/docs/getting-started/frontend/){: .btn .btn-green }
+[View Tutorial]({{ site.baseurl }}/docs/getting-started/tutorial/){: .btn .btn-green }
