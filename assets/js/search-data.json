@@ -329,24 +329,54 @@
     "url": "/bench-mr/docs/results/",
     "relUrl": "/docs/results/"
   },"55": {
+    "doc": "Corridor Results",
+    "title": "Results from Procedurally Generated Corridors",
+    "content": "These results have been automatically generated from our Continuous Integration (CI) system. ",
+    "url": "/bench-mr/docs/results/corridor/#results-from-procedurally-generated-corridors",
+    "relUrl": "/docs/results/corridor/#results-from-procedurally-generated-corridors"
+  },"56": {
+    "doc": "Corridor Results",
+    "title": "Time stamp: 2021-02-02 06:02:08.234660",
+    "content": " ",
+    "url": "/bench-mr/docs/results/corridor/#time-stamp-2021-02-02-060208234660",
+    "relUrl": "/docs/results/corridor/#time-stamp-2021-02-02-060208234660"
+  },"57": {
+    "doc": "Corridor Results",
+    "title": "Trajectories",
+    "content": ". ",
+    "url": "/bench-mr/docs/results/corridor/#trajectories",
+    "relUrl": "/docs/results/corridor/#trajectories"
+  },"58": {
+    "doc": "Corridor Results",
+    "title": "Planning Statistics",
+    "content": ". ",
+    "url": "/bench-mr/docs/results/corridor/#planning-statistics",
+    "relUrl": "/docs/results/corridor/#planning-statistics"
+  },"59": {
+    "doc": "Corridor Results",
+    "title": "Corridor Results",
+    "content": " ",
+    "url": "/bench-mr/docs/results/corridor/",
+    "relUrl": "/docs/results/corridor/"
+  },"60": {
     "doc": "Moving AI Planners",
     "title": "Moving AI",
     "content": "Path planning results from the 2D Pathfinding “MovingAI” Datasets . | | Scenario Steer Function cc_reeds_shepp dubins posq reeds_shepp Get Result Get Started Please choose from the panel and click on \"Get Result\". ",
     "url": "/bench-mr/docs/results/movingai-planners/#moving-ai",
     "relUrl": "/docs/results/movingai-planners/#moving-ai"
-  },"56": {
+  },"61": {
     "doc": "Moving AI Planners",
     "title": "Moving AI Planners",
     "content": " ",
     "url": "/bench-mr/docs/results/movingai-planners/",
     "relUrl": "/docs/results/movingai-planners/"
-  },"57": {
+  },"62": {
     "doc": "Moving AI Smoothers",
     "title": "Moving AI",
     "content": "Post smoothing results from the 2D Pathfinding “MovingAI” Datasets . | | Scenario Steer Function cc_reeds_shepp dubins posq reeds_shepp Display Merged Separated by planners Get Result Get Started Please choose from the panel and click on \"Get Result\". ",
     "url": "/bench-mr/docs/results/movingai-smoothers/#moving-ai",
     "relUrl": "/docs/results/movingai-smoothers/#moving-ai"
-  },"58": {
+  },"63": {
     "doc": "Moving AI Smoothers",
     "title": "Moving AI Smoothers",
     "content": " ",
